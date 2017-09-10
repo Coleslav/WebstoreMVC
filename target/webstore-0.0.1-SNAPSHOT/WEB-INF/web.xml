@@ -13,7 +13,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/webstore</url-pattern>
 	</servlet-mapping>
 
 </web-app>
