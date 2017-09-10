@@ -19,16 +19,19 @@
 
         <section class="container">
             <div class="row">
-                <div class="com-sm-6 col-md-3" style="padding-bottom: 15 px">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3> ${product.name} </h3>
-                            <p> ${product.description} </p>
-                            <p> ${product.unitPrice} </p>
-                            <p>Liczba sztuk w magazynie: ${product.unitsInStock}</p>
-                        </div>
-                    </div>
-                </div>
+               <c:forEach items="${products}" var="product">
+                   <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+                       <div class="thumbnail">
+                           <div class="caption">
+                               <h3>${product.name}</h3>
+                               <p>${product.description}</p>
+                               <p>Cena: ${product.unitPrice} PLN</p>
+                               <p>Liczba sztuk w magazynie: ${product.unitsInStock}</p>
+                           </div>
+                       </div>
+                   </div>
+               </c:forEach>
+
             </div>
         </section>
     </body>
