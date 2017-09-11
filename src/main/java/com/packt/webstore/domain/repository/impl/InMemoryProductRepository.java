@@ -8,7 +8,7 @@ import com.packt.webstore.domain.Product;
 import com.packt.webstore.domain.repository.ProductRepository;
 
 @Repository
-public class InMemoryProductRepository implements ProductRepository{
+public class InMemoryProductRepository implements ProductRepository {
 
     private List<Product> listOfProducts = new ArrayList<Product>();
 
@@ -54,6 +54,16 @@ public class InMemoryProductRepository implements ProductRepository{
             throw new IllegalArgumentException("Brak produktu o wskazanym id: " + productId);
         }
         return productById;
+    }
+
+    public List<Product> getProductsByCategory(String category){
+        List<Product> productsByCategory = new ArrayList<Product>();
+        for(Product product: listOfProducts){
+            if(category.equalsIgnoreCase(product.getCategory())){
+                productsByCategory.add(product);
+            }
+        }
+        return productsByCategory;
     }
 }
 
