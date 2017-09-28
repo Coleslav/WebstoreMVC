@@ -5,10 +5,7 @@ import com.packt.webstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.MatrixVariable;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -50,4 +47,24 @@ public class ProductController {
         model.addAttribute("product", productService.getProductById(productId));
         return "product";
     }
+
+    @RequestMapping("/manufacturer")
+    public String getProductByManufacturer(@RequestParam("manufacturer") String manufacturer, Model model) {
+        model.addAttribute("product", productService.getProductsByManufacturer(manufacturer));
+        return "products";
+    }
+
+    /*
+    @RequestMapping("/{category}/{ByCriteria}/{manufacturer}")
+    public String getProductsByCategory(@PathVariable("category")String productCategory,
+                                        @MatrixVariable(pathVar = "ByCriteria")Map<String,List<String>> filterParams,
+                                        @RequestParam("manufacturer") String manufacturer,
+                                        Model model){
+
+        model.addAttribute("products", productService.getProductsByCategory(productCategory));
+        model.addAttribute("products", productService.getProductsByFilter(filterParams));
+        model.addAttribute("products", productService.getProductsByManufacturer(manufacturer));
+        return "products";
+    }
+    */
 }

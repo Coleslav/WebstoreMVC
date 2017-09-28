@@ -65,6 +65,16 @@ public class InMemoryProductRepository implements ProductRepository {
         return productsByCategory;
     }
 
+    public List<Product> getProductsByManufacturer(String manufacturer){
+        List<Product> productsByManufacturer = new ArrayList<Product>();
+        for(Product product: listOfProducts){
+            if(manufacturer.equalsIgnoreCase(product.getManufacturer())){
+                productsByManufacturer.add(product);
+            }
+        }
+        return productsByManufacturer;
+    }
+
     public Set<Product> getProductsByFilter(Map<String, List<String>> filterParams){
         Set<Product> productsByBrand = new HashSet<Product>();
         Set<Product> productsByCategory = new HashSet<Product>();
