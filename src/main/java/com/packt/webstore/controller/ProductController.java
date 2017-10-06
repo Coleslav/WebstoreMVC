@@ -1,11 +1,16 @@
 package com.packt.webstore.controller;
 
 //import java.math.BigDecimal;
+import com.packt.webstore.domain.Product;
 import com.packt.webstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import sun.swing.StringUIClientPropertyKey;
 
 import java.util.*;
 
@@ -42,6 +47,7 @@ public class ProductController {
         return "products";
     }
 
+
     @RequestMapping("/product")
     public String getProductById(@RequestParam("id") String productId, Model model) {
         model.addAttribute("product", productService.getProductById(productId));
@@ -50,21 +56,30 @@ public class ProductController {
 
     @RequestMapping("/manufacturer")
     public String getProductByManufacturer(@RequestParam("manufacturer") String manufacturer, Model model) {
-        model.addAttribute("product", productService.getProductsByManufacturer(manufacturer));
-        return "products";
-    }
-
-    /*
-    @RequestMapping("/{category}/{ByCriteria}/{manufacturer}")
-    public String getProductsByCategory(@PathVariable("category")String productCategory,
-                                        @MatrixVariable(pathVar = "ByCriteria")Map<String,List<String>> filterParams,
-                                        @RequestParam("manufacturer") String manufacturer,
-                                        Model model){
-
-        model.addAttribute("products", productService.getProductsByCategory(productCategory));
-        model.addAttribute("products", productService.getProductsByFilter(filterParams));
         model.addAttribute("products", productService.getProductsByManufacturer(manufacturer));
         return "products";
     }
-    */
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String getAddNewProductForm(Model model){
+        Product newProduct = new Product();
+        model.addAttribute("newProduct", newProduct);
+        return "addProduct";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result) {
+        String[] suppressedFields = result.getSuppressedFields();
+        if(suppressedFields.length > 0) {
+            throw new RuntimeException("Próba wiązania niedozwolonych pól:" + StringUtils.arrayToCommaDelimitedString(suppressedFields));
+        }
+        productService.addProduct(newProduct);
+        return "redirect:/products";
+    }
+
+    @InitBinder
+    public void initialiseBinder(WebDataBinder binder){
+        binder.setDisallowedFields("unitsInOrder", "Discontinued");
+    }
+
 }

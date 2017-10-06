@@ -35,6 +35,10 @@ public class InMemoryProductRepository implements ProductRepository {
         listOfProducts.add(tablet_Nextus);
     }
 
+    public void addProduct(Product product) {
+        listOfProducts.add(product);
+    }
+
     public List<Product> getAllProducts() {
         return listOfProducts;
     }
