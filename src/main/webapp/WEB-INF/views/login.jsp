@@ -30,7 +30,7 @@
                             <spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br/>
                         </div>
                     </c:if>
-                    <form action="<c:url value="/j_spring_security_check"></c:url>" method="post">
+                    <form action="<c:url value="/j_spring_security_check"/>" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Nazwa uzytkownika" name='j_username' type="text">

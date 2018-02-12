@@ -11,7 +11,7 @@ public class HomeController {
 	public String welcome(Model model) {
 		model.addAttribute("greeting", "Witaj w sklepie internetowym!");
 		model.addAttribute("tagline", "Wyjątkowym i jedynym sklepie internetowym");
-		
 		return "welcome";
 	}
+
 }
