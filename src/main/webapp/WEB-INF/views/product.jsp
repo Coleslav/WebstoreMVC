@@ -21,7 +21,7 @@
     <div class="row">
         <div class="row">
             <div class="col-md-5">
-                <img src="<c:url value="/resource/images/${product.productId}.png" />" alt="image" style = "width:100%"/>
+                <img src="<c:url value="/resources/images/${product.productId}.png"/>" alt="image"  style = "width:100%"/>
                 <h3>${product.name}</h3>
                 <p>${product.description}</p>
                 <p><strong>Kod produktu: </strong><span class="<label label-warning">${product.productId}</span></p>
@@ -29,7 +29,7 @@
                 <p><strong>Kategoria</strong>: ${product.category}</p>
                 <p><strong>Dostępna liczba sztuk</strong>:${product.unitsInStock}</p>
                 <h4>${product.unitPrice} PLN</h4>
-                <a href="<spring:url value="/products" />" class="btn btndefault">
+                <a href="<spring:url value="/products"/>" class="btn btndefault">
                     <span class="glyphicon-hand-left glyphicon"></span>Wstecz
                 </a>
                 <p>

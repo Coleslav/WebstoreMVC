@@ -1,6 +1,5 @@
 package com.packt.webstore.domain.repository;
 
-import java.math.BigDecimal;
 import java.util.*;
 
 import com.packt.webstore.domain.Product;
