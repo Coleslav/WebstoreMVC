@@ -77,11 +77,21 @@ public class ProductController {
         }
         MultipartFile productImage = newProduct.getProductImage();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        MultipartFile productDocumentation = newProduct.getProductDocumentation();
+
         if(productImage!=null && !productImage.isEmpty()){
             try {
                 productImage.transferTo(new File(rootDirectory + "resources/images/" + newProduct.getProductId() + ".png"));
             } catch (Exception e) {
-                throw new RuntimeException("Niepowodzenie podczas próby zapisu obrazka produktu dupa", e);
+                throw new RuntimeException("Niepowodzenie podczas próby zapisu obrazka", e);
+            }
+        }
+
+        if(productDocumentation!=null && !productDocumentation.isEmpty()){
+            try {
+                productDocumentation.transferTo(new File(rootDirectory + "resources/pdf/" + newProduct.getProductId() + ".pdf"));
+            } catch (Exception e) {
+                throw new RuntimeException("Niepowodzenie podczas próby zapisu dokumentacji", e);
             }
         }
         productService.addProduct(newProduct);
@@ -98,7 +108,8 @@ public class ProductController {
                 "manufacturer",
                 "category",
                 "unitsInStock",
-                "productImage");
+                "productImage",
+                "productDocumentation");
     }
 
 }

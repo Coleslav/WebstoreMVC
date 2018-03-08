@@ -70,14 +70,14 @@
             </div>
 
             <div class="form-group">
-                    <label class="control-label col-lg-2" for="description">Opis</label>
+                    <label class="control-label col-lg-2 col-lg-2" for="description">Opis</label>
                     <div class="col-lg-10">
                         <form:textarea id="description" path="description" rows="2" />
                     </div>
             </div>
 
             <div class="form-group">
-                <label class="control-label col-lg-2" for="condition">Stan</label>
+                <label class="control-label col-lg-2 col-lg-2" for="condition">Stan</label>
                 <div class="col-lg-10">
                     <form:radiobutton id="condition" path="condition" value="New" />Nowy
                     <form:radiobutton id="condition" path="condition" value="Old" />Używany
@@ -85,12 +85,22 @@
                 </div>
             </div>
 
-            <div class="form-goup">
-                <label class="control-label col-lg-2" for="productImage">
+
+            <div class="form-group">
+                <label class="control-label col-lg-2 col-lg-2" for="productImage">
                     <spring:message code="addProduct.form.productImage.label"/>
                 </label>
                 <div class="col-lg-10">
                     <form:input id="productImage" path="productImage" type="file" class="form:input-large"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-lg-2 col-lg-2" for="productDocumentation">
+                    <spring:message code="addProduct.form.productDocumentation.label"/>
+                </label>
+                <div class="col-lg-10">
+                    <form:input id="productDocumentation" path="productDocumentation" type="file" class="form:input-large"/>
                 </div>
             </div>
 
