@@ -7,6 +7,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+    <mvc:annotation-driven enable-matrix-variables="true"/>
+
     <context:component-scan base-package="com.packt.webstore"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -18,8 +20,9 @@
         <property name="basename" value="messages"/>
     </bean>
 
-    <mvc:resources location="/resources/" mapping="/resources/**"/>
-    <mvc:default-servlet-handler/>
-    <mvc:annotation-driven enable-matrix-variables="true"/>
+    <mvc:resources location="/resources/" mapping="/resource/**"/>
 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240000"/>
+    </bean>
 </beans>

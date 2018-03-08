@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3e169a4d-486a-4099-9beb-c83c7dfc3b49" name="kkolin2.nazwa.pl" url="http://10.0.0.1">
+        <fileTransfer host="10.0.0.1" port="21" rootFolder="/root">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

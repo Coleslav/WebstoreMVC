@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="kkolin2.nazwa.pl">
+    <serverData>
+      <paths name="kkolin2.nazwa.pl">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/webapps" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
