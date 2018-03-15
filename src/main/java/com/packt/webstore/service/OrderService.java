@@ -1,6 +1,8 @@
 package com.packt.webstore.service;
 
-public interface OrderService {
+import com.packt.webstore.domain.Order;
 
+public interface OrderService {
+    Long saveOrder(Order order);
     void processOrder(String productId, long quantity);
 }

@@ -8,11 +8,13 @@ import javax.validation.MessageInterpolator;
 import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @XmlRootElement
 
-public class Product {
+public class Product implements Serializable {
+    private static final long serialVersionUID = 56654321454347345L;
     @Pattern(regexp = "P[0-9]+", message = "{javax.validation.constraints.Pattern}")
     @ProductId
     private String productId;

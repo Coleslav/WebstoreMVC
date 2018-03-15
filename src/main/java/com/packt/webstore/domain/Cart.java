@@ -1,10 +1,12 @@
 package com.packt.webstore.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cart {
+public class Cart implements Serializable {
+    private static final long serialVersionUID = -32532524242155532L;
     private String cartId;
     private Map<String, CartItem> cartItems;
     private BigDecimal grandTotal;
